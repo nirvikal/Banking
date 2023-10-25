@@ -1,0 +1,5 @@
+package com.wipro.Customer.Service;
+
+public interface CustomerService {
+
+}

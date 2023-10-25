@@ -1,0 +1,8 @@
+com\wipro\Customer\Service\CustomerService.class
+com\wipro\Customer\Repository\CustomerCreationStatusRepository.class
+com\wipro\Customer\Service\CustomerServiceImpl.class
+com\wipro\Customer\CustomerApplication.class
+com\wipro\Customer\Controller\CustomerController.class
+com\wipro\Customer\Model\Customer.class
+com\wipro\Customer\Repository\CustomerRepository.class
+com\wipro\Customer\Model\CustomerCreationStatus.class

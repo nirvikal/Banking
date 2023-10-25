@@ -1,0 +1,15 @@
+package com.wipro.Customer.Model;
+
+import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class CustomerCreationStatus {
+	private String message;
+	private Long customerId;
+}

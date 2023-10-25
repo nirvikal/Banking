@@ -1,0 +1,5 @@
+package com.wipro.Customer.Repository;
+
+public interface CustomerCreationStatusRepository {
+
+}

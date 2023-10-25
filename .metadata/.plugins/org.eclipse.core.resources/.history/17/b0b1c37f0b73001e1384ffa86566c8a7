@@ -1,0 +1,31 @@
+package com.wipro.Customer.Service;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.wipro.Customer.Model.Customer;
+import com.wipro.Customer.Model.CustomerCreationStatus;
+import com.wipro.Customer.Repository.CustomerCreationStatusRepository;
+import com.wipro.Customer.Repository.CustomerRepository;
+
+@Service
+public class CustomerServiceImpl implements CustomerService {
+	
+	CustomerRepository custRepo;
+	CustomerCreationStatusRepository statusRepo;
+
+	@Override
+	public CustomerCreationStatus saveCustomerDetails(Customer customer) {
+		if(customer.equals(custRepo.save(customer))) 
+			return statusRepo.save(new CustomerCreationStatus("Customer Details Created Successfully",customer.getCustomerId()));
+		else
+			return statusRepo.save(new CustomerCreationStatus("Customer Details Not Created",customer.getCustomerId()));
+	}
+
+	@Override
+	public Optional<Customer> getCustomerDetails(Long customerId) {
+		return custRepo.findById(customerId);
+	}
+
+}

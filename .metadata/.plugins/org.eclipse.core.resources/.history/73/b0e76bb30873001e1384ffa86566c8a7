@@ -1,0 +1,9 @@
+package com.wipro.Customer.Service;
+
+import com.wipro.Customer.Model.Customer;
+import com.wipro.Customer.Model.CustomerCreationStatus;
+
+public interface CustomerService {
+	public Customer saveCustomerDetails(Customer customer);
+	public CustomerCreationStatus getCustomerDetails(CustomerCreationStatus status);
+}
