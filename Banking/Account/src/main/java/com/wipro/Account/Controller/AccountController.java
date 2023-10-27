@@ -41,7 +41,7 @@ public class AccountController {
 	}
 	
 	@GetMapping("/getAccountStatement")
-	public Statement getAccountStatement(@RequestParam(value="accountId") Long accountId,@RequestParam(value="fromDate") Date fromDate,
+	public Statement[] getAccountStatement(@RequestParam(value="accountId") Long accountId,@RequestParam(value="fromDate") Date fromDate,
 			@RequestParam(value="toDate") Date toDate) {
 				return service.getAccountStatement(accountId, fromDate, toDate);
 		

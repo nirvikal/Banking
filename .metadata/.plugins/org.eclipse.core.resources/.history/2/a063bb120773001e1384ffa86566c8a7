@@ -1,9 +1,0 @@
-package com.wipro.Customer.Repository;
-
-import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.wipro.Customer.Model.CustomerCreationStatus;
-
-public interface CustomerCreationStatusRepository extends JpaRepository<CustomerCreationStatus,Long>{
-
-}

@@ -11,7 +11,7 @@ public interface AccountService {
 	public AccountCreationStatus createAccount(Long customerId);
 	public Account[] getCustomerAccounts(Long customerId);
 	public Account getAccount(Long accountId);
-	public Statement getAccountStatement(Long accountId,Date fromDate,Date toDate);
+	public Statement[] getAccountStatement(Long accountId,Date fromDate,Date toDate);
 	public TransactionStatus deposit(Long accountId,Double amount);
 	public TransactionStatus withdraw(Long accountId,Double amount);
 	public Account saveAccount(Account account);

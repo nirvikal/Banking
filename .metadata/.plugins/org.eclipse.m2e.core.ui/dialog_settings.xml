@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\Nirvikal\Downloads\Account"/>
 			<item value="C:\Users\Nirvikal\Documents\Github\Customer"/>
 			<item value="C:\Users\Nirvikal\Documents\Github\Quotes-Generator"/>
 		</list>
@@ -31,6 +32,7 @@
 		</list>
 	</section>
 	<section name="MavenProjectWizardArchetypePage">
+		<item key="catalog" value="All Catalogs"/>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
 			<item value="[artifactId]-TRUNK"/>
@@ -42,10 +44,13 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="org.Account"/>
 		</list>
 		<list key="groupId">
+			<item value="com.wipro"/>
 		</list>
 		<list key="artifactId">
+			<item value="Account"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -64,10 +69,14 @@
 			<item value="com.wipro"/>
 		</list>
 		<list key="name">
-			<item value="Bank"/>
+			<item value="Account"/>
+			<item value="Customer"/>
 		</list>
 		<list key="artifactId">
-			<item value="Bank"/>
+			<item value="Account"/>
+			<item value="Banking"/>
+			<item value="Customer"/>
+			<item value="Cust"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -79,6 +88,21 @@
 		</list>
 		<list key="version">
 			<item value="0.0.1-SNAPSHOT"/>
+		</list>
+	</section>
+	<section name="MavenModuleWizardParentPage">
+		<list key="moduleName">
+			<item value="Account"/>
+			<item value="Customer"/>
+			<item value="Cust"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
 		</list>
 	</section>
 </section>

@@ -30,10 +30,10 @@ public class AccountServiceImpl implements AccountService{
 	public AccountCreationStatus createAccount(Long customerId) {
 		Account saving = saveAccount(new Account(null,customerId,"Savings",0.00));
 		saveAccount(saving);
-		accountStatusRepo.save(new AccountCreationStatus(saving.getAccountId(),"Savings account created Successfully for the CustomerId"));
+		accountStatusRepo.save(new AccountCreationStatus(saving.getAccountId(),"Savings account created Successfully for the CustomerId"+customerId));
 		Account current = saveAccount(new Account(null,customerId,"Current",0.00));
 		saveAccount(current);
-		return accountStatusRepo.save(new AccountCreationStatus(current.getAccountId(),"Current account created Successfully for the CustomerId"));
+		return accountStatusRepo.save(new AccountCreationStatus(current.getAccountId(),"Current account created Successfully for the CustomerId"+customerId));
 	}
 
 	@Override
@@ -47,21 +47,29 @@ public class AccountServiceImpl implements AccountService{
 	}
 
 	@Override
-	public Statement getAccountStatement(Long accountId, Date fromDate, Date toDate) {
-		// TODO Auto-generated method stub
-		return null;
+	public Statement[] getAccountStatement(Long accountId, Date fromDate, Date toDate) {
+		return stmtRepo.findByDateBetweenAndAccountId(fromDate, toDate, accountId);
 	}
 
 	@Override
 	public TransactionStatus deposit(Long accountId, Double amount) {
-		// TODO Auto-generated method stub
-		return null;
+		long millis=System.currentTimeMillis();  
+		Account acc = accountRepo.findById(accountId).get();
+		acc.setBalance(acc.getBalance()+amount);
+		accountRepo.save(acc);
+		stmtRepo.save(new Statement(null,acc.getAccountId(),new Date(millis),"Deposit",null,new Date(millis),null,amount,acc.getBalance()));
+		return transRepo.save(new TransactionStatus(acc.getAccountId(),"Successful",0.00,acc.getBalance()));
 	}
 
 	@Override
 	public TransactionStatus withdraw(Long accountId, Double amount) {
-		// TODO Auto-generated method stub
-		return null;
+		long millis=System.currentTimeMillis();  
+		Account acc = accountRepo.findById(accountId).get();
+		Double intialAmount = acc.getBalance();
+		acc.setBalance(amount);
+		accountRepo.save(acc);
+		stmtRepo.save(new Statement(null,acc.getAccountId(),new Date(millis),"Withdraw",null,new Date(millis),intialAmount,null,amount));
+		return transRepo.save(new TransactionStatus(acc.getAccountId(),"Successful",0.00,acc.getBalance()));
 	}
 
 //	@Override

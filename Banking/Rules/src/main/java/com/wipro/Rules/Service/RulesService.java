@@ -1,5 +1,9 @@
 package com.wipro.Rules.Service;
 
-public interface RulesService {
 
+import com.wipro.Rules.Model.RuleStatus;
+
+public interface RulesService {
+	public RuleStatus evaluateMinBal(Double balance,Long accountId);
+	public Float getServiceCharge();
 }
